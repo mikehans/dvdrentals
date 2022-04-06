@@ -1,4 +1,5 @@
-﻿using data_access;
+﻿using Contracts;
+using data_access;
 using DTOs;
 
 namespace domain;

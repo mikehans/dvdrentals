@@ -10,3 +10,6 @@
 x64/
 [Bb]in/
 [Oo]bj/
+
+# logging
+internal_logs/

@@ -3,6 +3,8 @@
   <ItemGroup>
     <ProjectReference Include="..\data_access\data_access.csproj" />
     <ProjectReference Include="..\DTOs\DTOs.csproj" />
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
+
   </ItemGroup>
 
   <PropertyGroup>
