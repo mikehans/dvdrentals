@@ -12,12 +12,27 @@ namespace domain;
     - ccompany (inc. staff and stores)
 
 */
-public class Catalogue
+public class Catalogue : ICatalogue
 {
+    public IDataOperations Repo { get; private set; }
+    public Catalogue(IDataOperations dataOps)
+    {
+        this.Repo = dataOps;
+    }
     // list of films (the catalogue)
-    public List<FilmDTO> RetrieveCatalogue(){
-        IDataOperations repo = new FakeDataOperations();
-        return repo.GetFilms();
+    public List<FilmDTO> RetrieveCatalogue()
+    {
+        return Repo.GetFilms();
+    }
+
+    public List<FilmDTO> RetrieveTitle(string title)
+    {
+        return Repo.GetFilmByTitle(title);
+    }
+
+    public List<FilmDTO> RetrieveFilmsInYear(string year)
+    {
+        return Repo.GetFilmByReleaseYear(year);
     }
 
     // list of categories

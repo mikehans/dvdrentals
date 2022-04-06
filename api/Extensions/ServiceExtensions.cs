@@ -1,4 +1,6 @@
 using Contracts;
+using data_access;
+using domain;
 using Logger;
 
 namespace api.Extensions
@@ -18,14 +20,26 @@ namespace api.Extensions
             });
         }
 
-        public static void ConfigureIISIntegration(this IServiceCollection services){
-            services.Configure<IISOptions>(options => {
+        public static void ConfigureIISIntegration(this IServiceCollection services)
+        {
+            services.Configure<IISOptions>(options =>
+            {
 
             });
         }
 
-        public static void ConfigureLoggerService(this IServiceCollection services){
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
             services.AddSingleton<ILoggerManger, Logger.LoggerManager>();
+        }
+
+        public static void ConfigureCatalogueDomain(this IServiceCollection services)
+        {
+            services.AddSingleton<ICatalogue, Catalogue>();
+        }
+        public static void ConfigureDataAccessLayer(this IServiceCollection services)
+        {
+            services.AddSingleton<IDataOperations, FakeDataOperations>();
         }
     }
 }
